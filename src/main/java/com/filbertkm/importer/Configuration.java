@@ -4,6 +4,12 @@ import org.kohsuke.args4j.Option;
 
 public class Configuration {
 
+	@Option(name = "-dbhost", usage = "database host", required = true)
+	private String dbhost;
+	
+	@Option(name = "-dbport", usage = "database connection port", required = true)
+	private String dbport;
+
 	@Option(name = "-dbuser", usage = "database user", required = true)
 	private String dbuser;
 
@@ -16,10 +22,18 @@ public class Configuration {
 	@Option(name = "-dumpdir", usage = "dump directory", required = true)
 	private String dumpdir;
 
+	public String getDBHost() {
+		return dbhost;
+	}
+	
+	public String getDBPort() {
+		return dbport;
+	}
+
 	public String getDbUser() {
 		return dbuser;
 	}
-	
+
 	public String getDbName() {
 		return dbname;
 	}
@@ -32,20 +46,14 @@ public class Configuration {
 		return dumpdir;
 	}
 	
-	public void setDbUser(String db_user) {
-		dbuser= db_user;
+	public void setDumpData(String db_host, String db_port, String db_name, String db_user, String db_pass, String dump_dir){
+		dbhost=db_host;
+		dbport=db_port;
+		dbuser=db_user;
+		dbname=db_name;
+		dbpass=db_pass;
+		dumpdir=dump_dir;		
 	}
 	
-	public void setDbName(String db_name) {
-		dbname = db_name;
-	}
-
-	public void setDbPass(String db_pass) {
-		dbpass = db_pass;
-	}
-
-	public void setDumpDir(String db_dmp_dir) {
-		dumpdir= db_dmp_dir;
-	}
 
 }
